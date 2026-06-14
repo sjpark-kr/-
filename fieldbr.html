@@ -205,6 +205,80 @@ body {
 .cc-f { font-size: 12px; font-weight: 700; color: #111; margin-bottom: 4px; }
 .cc-d { font-size: 10.5px; color: #666; line-height: 1.6; }
 
+/* ─── STAT BAND ─── */
+.stat-band {
+  display: flex; gap: 0; margin-bottom: 20px;
+}
+.stat-cell {
+  flex: 1; border-left: 3px solid #111; padding: 8px 16px;
+}
+.stat-cell:first-child { border-color: #111; }
+.stat-cell:nth-child(2) { border-color: #555; }
+.stat-cell:nth-child(3) { border-color: #aaa; }
+.stat-lbl { font-size: 10px; color: #999; letter-spacing: 0.8px; font-weight: 500; margin-bottom: 3px; }
+.stat-val { font-size: 18px; font-weight: 900; color: #111; line-height: 1.1; }
+.stat-sub { font-size: 11px; color: #666; margin-top: 2px; }
+
+/* ─── INSIGHT STRIP ─── */
+.insight-strip {
+  background: #f0f0f0; border-left: 4px solid #111;
+  padding: 12px 18px; margin-bottom: 14px;
+  font-size: 13px; color: #333; line-height: 1.75;
+}
+.insight-strip strong { color: #111; font-weight: 700; }
+
+/* ─── CSS BAR CHART ─── */
+.bar-chart { display: flex; flex-direction: column; gap: 7px; }
+.bar-row { display: flex; align-items: center; gap: 10px; }
+.bar-lbl { font-size: 11px; color: #444; width: 90px; flex-shrink: 0; text-align: right; }
+.bar-track { flex: 1; height: 14px; background: #efefef; position: relative; }
+.bar-fill  { height: 100%; background: #111; position: relative; }
+.bar-fill.gray { background: #999; }
+.bar-fill.light { background: #ccc; }
+.bar-val { font-size: 10px; font-weight: 700; color: #fff; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); white-space: nowrap; }
+.bar-val.dark { color: #555; right: -36px; }
+.bar-chart-title { font-size: 10px; font-weight: 700; color: #999; letter-spacing: 1px; margin-bottom: 8px; }
+
+/* ─── MINI TWO-COL ─── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+.col-block { }
+.col-title { font-size: 11px; font-weight: 700; color: #999; letter-spacing: 0.8px; margin-bottom: 8px; }
+
+/* ─── PROBLEM SLIDE 2-PANEL LAYOUT ─── */
+.prob-layout { display: grid; grid-template-columns: 56% 44%; gap: 24px; margin-top: 14px; height: 640px; }
+.prob-left { display: flex; flex-direction: column; gap: 14px; }
+.prob-right { display: flex; flex-direction: column; gap: 14px; padding-left: 18px; border-left: 1px solid #e0e0e0; }
+
+.data-card { background: #f8f8f8; padding: 14px 16px; }
+.data-card-title { font-size: 10px; font-weight: 700; color: #999; letter-spacing: 1px; margin-bottom: 10px; }
+.data-card-note { font-size: 10px; color: #aaa; margin-top: 6px; font-style: italic; }
+
+/* lifecycle comparison */
+.lifecycle { display: flex; flex-direction: column; gap: 8px; }
+.lc-row { display: flex; align-items: center; gap: 10px; }
+.lc-lbl { font-size: 11px; color: #444; width: 48px; flex-shrink: 0; font-weight: 600; }
+.lc-bar-wrap { flex: 1; }
+.lc-bar { height: 18px; display: flex; align-items: center; padding-left: 8px; }
+.lc-bar span { font-size: 10px; font-weight: 700; color: #fff; }
+.lc-bar.eu { background: #111; width: 100%; }
+.lc-bar.kr { background: #bbb; width: 30%; }
+
+/* digitalization bars */
+.digi-list { display: flex; flex-direction: column; gap: 6px; }
+.digi-row { display: flex; align-items: center; gap: 8px; }
+.digi-lbl { font-size: 10px; color: #555; width: 66px; flex-shrink: 0; text-align: right; }
+.digi-bar-wrap { flex: 1; background: #efefef; height: 13px; }
+.digi-fill { height: 100%; }
+.digi-pct { font-size: 9px; color: #888; width: 28px; text-align: right; }
+
+/* workforce age */
+.age-grid { display: flex; align-items: flex-end; gap: 6px; height: 60px; }
+.age-col { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+.age-bar-wrap { width: 100%; display: flex; align-items: flex-end; height: 50px; }
+.age-fill { width: 100%; }
+.age-lbl { font-size: 9px; color: #888; }
+.age-val { font-size: 9px; font-weight: 700; color: #333; }
+
 /* ─── PRINT ─── */
 @media print {
   body { background: #fff; padding: 0; }
@@ -249,27 +323,116 @@ body {
     <span class="close">×</span>
   </div>
   <div class="body">
-    <div class="quote">"설계를 마치고 시공이 시작되는 순간, 항상 같은 걱정이 시작된다."</div>
-    <div class="p-list">
-      <div class="p-item">
-        <div class="p-ghost">1</div>
-        <div>
-          <div class="p-title">설계는 진화, 현장은 30년째 정체</div>
-          <div class="p-desc">BIM·파라메트릭·생성형 AI로 설계는 mm 단위로 정밀해졌지만, 건설 현장은 종이 도면과 어림 시공에서 벗어나지 못했다. 맥킨지 산업별 디지털화 지수 <strong>건설업 22개 산업 중 최하위권.</strong> 설계가 정밀해질수록 현장과의 간극은 더 벌어진다.</div>
+    <div class="prob-layout">
+      <!-- LEFT: problems -->
+      <div class="prob-left">
+        <div class="quote" style="margin-top:14px;margin-bottom:0;">"설계를 마치고 시공이 시작되는 순간, 항상 같은 걱정이 시작된다. 유럽은 100년 자산을 짓고, 우리는 30년 소비재를 짓는다."</div>
+        <div class="p-item">
+          <div class="p-ghost">1</div>
+          <div>
+            <div class="p-title">설계는 진화, 현장은 30년째 정체</div>
+            <div class="p-desc">BIM·생성형AI로 설계가 mm 단위로 정밀해질수록 현장과의 간극은 더 벌어진다. 맥킨지 <strong>22개 산업 중 건설 최하위권</strong> — 디지털 전환 체감 0%.</div>
+          </div>
+        </div>
+        <div class="p-item">
+          <div class="p-ghost">2</div>
+          <div>
+            <div class="p-title">현장 인력 구조의 이중 위기</div>
+            <div class="p-desc">기능인력 평균 <strong>54세</strong> → 숙련 절벽 / 외국인 비중 <strong>25~30%</strong> → 언어 장벽. 반도체 불량은 교체하면 되지만, <strong>시공 불량은 그 안에서 사는 사람들의 30년에 남는다.</strong></div>
+          </div>
+        </div>
+        <div class="p-item">
+          <div class="p-ghost">3</div>
+          <div>
+            <div class="p-title">공공건물 품질 붕괴</div>
+            <div class="p-desc">공공설계 당선작이 발주·시공에서 의도가 훼손된다. GDP 20~25%를 움직이는 산업의 품질이 곧 <strong>시민의 삶의 질</strong>이다.</div>
+          </div>
         </div>
       </div>
-      <div class="p-item">
-        <div class="p-ghost">2</div>
-        <div>
-          <div class="p-title">현장 인력 구조의 이중 위기</div>
-          <div class="p-desc">기능인력 평균 연령 <strong>54세</strong> → 10년 내 숙련 기능공 절벽 / 외국인 근로자 비중 <strong>25~30%</strong> → 언어 장벽으로 설계 의도 전달 불가 / 기능 교육 체계 전무. 타일·미장·방수는 현장 어깨너머 전수 — 그 사람들이 사라지고 있다.</div>
+      <!-- RIGHT: data charts -->
+      <div class="prob-right">
+        <!-- Chart 1: building lifecycle -->
+        <div class="data-card">
+          <div class="data-card-title">건물 수명 비교 — 자산 vs 소비재</div>
+          <div class="lifecycle">
+            <div class="lc-row">
+              <div class="lc-lbl">유럽</div>
+              <div class="lc-bar-wrap">
+                <div class="lc-bar eu"><span>100년+</span></div>
+              </div>
+            </div>
+            <div class="lc-row">
+              <div class="lc-lbl">한국</div>
+              <div class="lc-bar-wrap">
+                <div class="lc-bar kr"><span style="color:#555;">~30년</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="data-card-note">수명 차이 = 내구성 아닌 설계의도 전달 여부</div>
         </div>
-      </div>
-      <div class="p-item">
-        <div class="p-ghost">3</div>
-        <div>
-          <div class="p-title">공공건물 품질 붕괴 — 국가 자산이 허비된다</div>
-          <div class="p-desc">공공설계공모 당선작이 발주·시공 과정에서 의도가 훼손되고, 품질을 객관적으로 검증할 도구가 없다. <strong>K-콘텐츠·K-뷰티가 세계로 나간 시대에, 한국 공공건물은 해외에 내놓을 수준이 아니다.</strong></div>
+        <!-- Chart 2: McKinsey digitalization -->
+        <div class="data-card">
+          <div class="data-card-title">산업별 디지털화 지수 (McKinsey, 22개 산업)</div>
+          <div class="digi-list">
+            <div class="digi-row">
+              <div class="digi-lbl">ICT</div>
+              <div class="digi-bar-wrap"><div class="digi-fill" style="width:100%;background:#111;height:13px;"></div></div>
+              <div class="digi-pct">100%</div>
+            </div>
+            <div class="digi-row">
+              <div class="digi-lbl">금융</div>
+              <div class="digi-bar-wrap"><div class="digi-fill" style="width:73%;background:#555;height:13px;"></div></div>
+              <div class="digi-pct">73%</div>
+            </div>
+            <div class="digi-row">
+              <div class="digi-lbl">제조</div>
+              <div class="digi-bar-wrap"><div class="digi-fill" style="width:50%;background:#888;height:13px;"></div></div>
+              <div class="digi-pct">50%</div>
+            </div>
+            <div class="digi-row">
+              <div class="digi-lbl" style="color:#c00;font-weight:700;">건설 ▼</div>
+              <div class="digi-bar-wrap"><div class="digi-fill" style="width:16%;background:#c00;height:13px;"></div></div>
+              <div class="digi-pct" style="color:#c00;font-weight:700;">16%</div>
+            </div>
+          </div>
+        </div>
+        <!-- Chart 3: workforce age -->
+        <div class="data-card">
+          <div class="data-card-title">건설 기능인력 연령 분포</div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:70px;padding-bottom:4px;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+              <div style="font-size:9px;font-weight:700;color:#333;">8%</div>
+              <div style="width:100%;background:#ddd;height:14px;"></div>
+              <div style="font-size:9px;color:#999;">30대</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+              <div style="font-size:9px;font-weight:700;color:#333;">22%</div>
+              <div style="width:100%;background:#aaa;height:28px;"></div>
+              <div style="font-size:9px;color:#999;">40대</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+              <div style="font-size:9px;font-weight:700;color:#111;">38%</div>
+              <div style="width:100%;background:#555;height:48px;"></div>
+              <div style="font-size:9px;color:#999;">50대</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+              <div style="font-size:9px;font-weight:700;color:#c00;">32%</div>
+              <div style="width:100%;background:#c00;height:40px;"></div>
+              <div style="font-size:9px;color:#999;">60대+</div>
+            </div>
+          </div>
+          <div class="data-card-note">평균 연령 54세 → 10년 내 숙련 기능공 절벽</div>
+        </div>
+        <!-- Stat strip -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="background:#111;color:#fff;padding:10px 12px;">
+            <div style="font-size:9px;color:#aaa;margin-bottom:3px;">연관산업 GDP</div>
+            <div style="font-size:22px;font-weight:900;line-height:1;">20~25%</div>
+          </div>
+          <div style="background:#f0f0f0;padding:10px 12px;">
+            <div style="font-size:9px;color:#999;margin-bottom:3px;">생산유발계수</div>
+            <div style="font-size:22px;font-weight:900;color:#111;line-height:1;">× 1.9</div>
+          </div>
         </div>
       </div>
     </div>
@@ -442,8 +605,11 @@ body {
       </tbody>
     </table>
     <div class="vision-block">
+      <div class="vision-txt" style="margin-bottom:8px;">
+        <strong>건설은 수출 지표가 아니라 시민의 삶을 짓는 산업이다.</strong> GDP 20~25%가 곧 사람들이 매일 출근하고, 치료받고, 배우는 공간의 질이다.
+      </div>
       <div class="vision-txt">
-        "FieldBridge가 인증한 공공건물이 해외 건축상을 받고, 한국 건설사의 해외 수주 포트폴리오가 되는 날 — 그것이 <strong>K-Architecture</strong>의 시작이다."
+        FieldBridge가 인증한 공공건물이 해외 건축상을 받고, 한국 건설사의 해외 수주 포트폴리오가 되는 날 — 그것이 <strong>K-Architecture</strong>의 시작이다.
       </div>
     </div>
     <div class="collab-grid">
