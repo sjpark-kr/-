@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>FieldBridge — 커버</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: #b0b0b0;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh;
+}
+
+/* ─── SLIDE BASE ─── */
+.slide {
+  width: 1440px;
+  height: 810px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+
+/* ─── COMMON HEADER ─── */
+.top { padding: 26px 64px 0; }
+.date { font-size: 13px; color: #555; letter-spacing: 0.3px; margin-bottom: 6px; }
+.close {
+  position: absolute; top: 26px; right: 64px;
+  font-size: 22px; color: #555; font-weight: 300;
+}
+.h-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 7px; }
+.h-num { font-size: 24px; font-weight: 900; color: #111; }
+.h-name { font-size: 15px; font-weight: 500; color: #333; }
+.h-line { display: flex; align-items: center; }
+.h-thick { width: 290px; height: 5px; background: #111; flex-shrink: 0; }
+.h-thin  { flex: 1; height: 1px; background: #ccc; }
+
+/* ─── BODY ─── */
+.body { padding: 0 64px; }
+
+/* PAGE 1 */
+.cover-rule { width: 100%; height: 1px; background: #111; margin-top: 8px; }
+.cover-title { font-size: 118px; font-weight: 900; color: #111; line-height: 1; margin-top: 78px; letter-spacing: -3px; }
+.cover-sub { font-size: 30px; font-weight: 700; color: #111; margin-top: 14px; }
+.cover-tag { font-size: 17px; font-weight: 300; color: #666; margin-top: 10px; letter-spacing: 0.3px; }
+.cover-foot { position: absolute; bottom: 44px; left: 64px; right: 64px; display: flex; align-items: flex-end; }
+.ci { margin-right: 44px; }
+.ci-lbl { font-size: 11px; color: #999; margin-bottom: 3px; }
+.ci-val { font-size: 16px; font-weight: 700; color: #111; }
+.badge { margin-left: auto; background: #111; color: #fff; padding: 10px 26px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
+
+/* PAGE 2 */
+.quote { font-size: 15px; font-style: italic; color: #444; border-left: 4px solid #111; padding-left: 18px; line-height: 1.75; margin-top: 26px; margin-bottom: 28px; }
+.p-list { display: flex; flex-direction: column; gap: 22px; }
+.p-item { display: flex; align-items: flex-start; gap: 18px; }
+.p-ghost { font-size: 96px; font-weight: 900; color: #ebebeb; line-height: 0.82; flex-shrink: 0; width: 66px; text-align: center; margin-top: -6px; user-select: none; }
+.p-title { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 5px; }
+.p-desc  { font-size: 13px; color: #555; line-height: 1.78; }
+.p-desc strong { color: #111; font-weight: 700; }
+
+/* PAGE 3 */
+.tech-lead { font-size: 15px; font-weight: 500; color: #333; margin-top: 20px; margin-bottom: 18px; }
+.tech-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; height: 548px; }
+.t-card { background: #f5f5f5; padding: 22px 28px; position: relative; display: flex; flex-direction: column; }
+.t-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 16px; height: 16px; background: #fff; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+.t-ghost { font-size: 54px; font-weight: 900; color: #e0e0e0; line-height: 1; margin-bottom: 4px; }
+.t-tag { display: inline-block; border: 1.5px solid #333; padding: 2px 8px; font-size: 10px; font-weight: 700; color: #333; letter-spacing: 1px; margin-bottom: 8px; align-self: flex-start; }
+.t-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 7px; }
+.t-desc  { font-size: 12px; color: #555; line-height: 1.78; }
+
+/* PAGE 4 */
+.biz-lead { font-size: 14px; font-weight: 700; font-style: italic; color: #111; margin-top: 20px; margin-bottom: 16px; }
+.cmp { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 13px; }
+.cmp thead th { background: #111; color: #fff; padding: 12px 18px; font-weight: 700; text-align: center; }
+.cmp thead th:first-child { background: #555; text-align: left; width: 20%; }
+.cmp thead th:nth-child(2) { background: #888; }
+.cmp tbody td { padding: 10px 18px; border: 1px solid #e8e8e8; text-align: center; color: #444; font-size: 13px; }
+.cmp tbody td:first-child { text-align: left; font-weight: 600; color: #222; background: #f8f8f8; }
+.cmp tbody tr:nth-child(even) td { background: #f4f4f4; }
+.cmp tbody tr:nth-child(even) td:first-child { background: #ebebeb; }
+.cmp td strong { color: #111; font-weight: 700; }
+.svc-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.svc { background: #f5f5f5; padding: 16px 18px; position: relative; }
+.svc::after { content: ''; position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: #fff; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+.svc-n { font-size: 10px; font-weight: 700; color: #aaa; letter-spacing: 1px; margin-bottom: 6px; }
+.svc-t { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 5px; line-height: 1.4; }
+.svc-d { font-size: 11.5px; color: #666; line-height: 1.65; }
+
+/* PAGE 5 */
+.rev { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px; font-size: 13px; }
+.rev thead th { background: #111; color: #fff; padding: 11px 16px; font-weight: 700; text-align: center; }
+.rev thead th:first-child { text-align: left; width: 36%; }
+.rev tbody td { padding: 10px 16px; border: 1px solid #e8e8e8; text-align: center; color: #444; }
+.rev tbody td:first-child { text-align: left; font-weight: 600; background: #f8f8f8; }
+.rev tbody tr:nth-child(even) td { background: #f4f4f4; }
+.rev tbody tr:nth-child(even) td:first-child { background: #ebebeb; }
+.rev .hl { font-weight: 700; color: #111; }
+.vision-block { background: #111; color: #fff; padding: 20px 30px; margin-bottom: 16px; }
+.vision-txt { font-size: 14.5px; font-weight: 400; line-height: 1.8; }
+.vision-txt strong { font-weight: 700; }
+.collab-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
+.cc { background: #f5f5f5; padding: 13px 12px; text-align: center; }
+.cc-f { font-size: 12px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.cc-d { font-size: 10.5px; color: #666; line-height: 1.6; }
+
+/* ─── PRINT ─── */
+@page { size: 1440px 810px; margin: 0; }
+@media print {
+  html, body { width: 1440px; height: 810px; background: #fff; }
+  .slide { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="top">
+    <div class="date">2026.07.08.</div>
+    <div class="cover-rule"></div>
+    <span class="close">×</span>
+  </div>
+  <div class="body">
+    <div class="cover-title">FieldBridge</div>
+    <div class="cover-sub">AI · AR 기반 건설 설계-시공 통합 플랫폼</div>
+    <div class="cover-tag">설계 의도를 현장 끝까지, 데이터가 지킨다</div>
+  </div>
+  <div class="cover-foot">
+    <div class="ci"><div class="ci-lbl">제안자</div><div class="ci-val">박수정</div></div>
+    <div class="ci"><div class="ci-lbl">소속 · 분야</div><div class="ci-val">건축공방 · 건축 설계</div></div>
+    <div class="badge">TAIC 15주차 비즈니스 모델링</div>
+  </div>
+</div>
+
+</body>
+</html>
