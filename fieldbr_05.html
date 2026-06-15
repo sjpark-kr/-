@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
 <title>FieldBridge — 04 수익 & 기대효과</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -48,34 +49,69 @@ body {
 .body { padding: 0 64px; }
 
 /* ══════════════════════════════════════
-   PAGE 1  ·  COVER
+   PAGE 1  ·  COVER (revised: with image grid)
 ══════════════════════════════════════ */
-.cover-rule { width: 100%; height: 1px; background: #111; margin-top: 8px; }
+.cover-rule { width: 100%; height: 1px; background: #111; margin-top: 6px; }
 
-.cover-title {
-  font-size: 118px; font-weight: 900; color: #111;
-  line-height: 1; margin-top: 78px; letter-spacing: -3px;
+.cover-info-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-top: 18px;
 }
-.cover-sub {
-  font-size: 30px; font-weight: 700; color: #111; margin-top: 14px;
+.cover-title {
+  font-size: 80px; font-weight: 900; color: #111;
+  line-height: 1; letter-spacing: -2px;
+}
+.cover-meta { text-align: right; }
+.cover-meta-name { font-size: 18px; font-weight: 700; color: #111; }
+.cover-meta-org  { font-size: 13px; font-weight: 400; color: #666; margin-top: 3px; }
+
+.cover-subtitle {
+  font-size: 16px; font-weight: 700; color: #333;
+  margin-top: 8px;
 }
 .cover-tag {
-  font-size: 17px; font-weight: 300; color: #666; margin-top: 10px; letter-spacing: 0.3px;
+  font-size: 13px; font-weight: 300; color: #888;
+  margin-top: 4px; letter-spacing: 0.2px;
 }
 
-.cover-foot {
-  position: absolute; bottom: 44px; left: 64px; right: 64px;
-  display: flex; align-items: flex-end;
+/* Image grid */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+  height: 380px;
 }
-.ci { margin-right: 44px; }
-.ci-lbl { font-size: 11px; color: #999; margin-bottom: 3px; }
-.ci-val { font-size: 16px; font-weight: 700; color: #111; }
+.img-slot {
+  background: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.img-slot img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; top: 0; left: 0;
+}
+.img-slot-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.52);
+  color: #fff; font-size: 11px; font-weight: 600;
+  padding: 6px 10px; line-height: 1.3;
+}
+.img-slot-add {
+  font-size: 28px; color: #bbb; line-height: 1;
+  margin-bottom: 6px;
+}
+.img-slot-hint {
+  font-size: 10px; color: #aaa; text-align: center; padding: 0 8px;
+}
 
-.badge {
-  margin-left: auto;
+.cover-badge {
+  position: absolute; bottom: 22px; right: 64px;
   background: #111; color: #fff;
-  padding: 10px 26px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 8px 22px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
 }
 
 /* ══════════════════════════════════════
@@ -280,13 +316,102 @@ body {
 .age-fill { width: 100%; }
 .age-lbl { font-size: 9px; color: #888; }
 .age-val { font-size: 9px; font-weight: 700; color: #333; }
-@page { size: 1440px 810px; margin: 0; }
+@page { size: 38.10cm 21.44cm; margin: 0; }
 @media print { html, body { width: 1440px; height: 810px; background: #fff; } .slide { box-shadow: none; } }
 </style>
+<script>
+(function(){
+  function scale(){
+    var el = document.querySelector('.slide');
+    var s = Math.min((window.innerWidth-20)/1440, (window.innerHeight-20)/810);
+    if(s<1){ el.style.transform='scale('+s+')'; el.style.transformOrigin='top center'; document.body.style.height=(810*s+20)+'px'; }
+  }
+  window.addEventListener('load',scale);
+  window.addEventListener('resize',scale);
+})();
+</script>
 </head>
 <body>
-          </div>
-        </div>
+<div class="slide">
+  <div class="top">
+    <div class="date">2026.07.08.</div>
+    <div class="h-row">
+      <span class="h-num">04</span>
+      <span class="h-name">수익 및 기대효과: K-Architecture의 시작</span>
+    </div>
+    <div class="h-line"><div class="h-thick"></div><div class="h-thin"></div></div>
+    <span class="close">×</span>
+  </div>
+  <div class="body">
+    <table class="rev">
+      <thead>
+        <tr>
+          <th style="text-align:left">수익원</th>
+          <th>단가</th>
+          <th>초기 목표</th>
+          <th>연 매출</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>현장 SaaS (건설사·건축사)</td>
+          <td>현장당 월 500만~2,000만원</td>
+          <td>100개 현장</td>
+          <td class="hl">60억~240억</td>
+        </tr>
+        <tr>
+          <td>공공건물 품질 인증</td>
+          <td>건당 5,000만~3억원</td>
+          <td>연 50건</td>
+          <td class="hl">25억~150억</td>
+        </tr>
+        <tr>
+          <td>CQP 기능학교 + 정부위탁</td>
+          <td>인당 300~500만 + 과제 수억</td>
+          <td>연 1,000명 + 3건</td>
+          <td class="hl">30억~100억</td>
+        </tr>
+        <tr>
+          <td>해외 사전 교육</td>
+          <td>인당 50~100만원</td>
+          <td>연 2,000명</td>
+          <td class="hl">10억~20억</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="vision-block">
+      <div class="vision-txt" style="margin-bottom:8px;">
+        <strong>건설은 수출 지표가 아니라 시민의 삶을 짓는 산업이다.</strong> GDP 20~25%가 곧 사람들이 매일 출근하고, 치료받고, 배우는 공간의 질이다.
+      </div>
+      <div class="vision-txt">
+        FieldBridge가 인증한 공공건물이 해외 건축상을 받고, 한국 건설사의 해외 수주 포트폴리오가 되는 날 — 그것이 <strong>K-Architecture</strong>의 시작이다.
+      </div>
+    </div>
+    <div style="font-size:11px;font-weight:700;color:#999;letter-spacing:1px;margin-bottom:8px;">TAIC 원우들께 드리는 역할 제안 — 함께 만들 수 있는 팀</div>
+    <div class="collab-grid">
+      <div class="cc">
+        <div class="cc-f">반도체·IoT</div>
+        <div class="cc-d">AR 글라스·스마트 센서·현장 로봇 하드웨어 파트너</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">데이터과학·AI</div>
+        <div class="cc-d">컴퓨터비전 품질검수 + 다국어 NLP 엔진 개발자</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">의료·바이오</div>
+        <div class="cc-d">기능공 안전·병원건물 품질인증 특화 파트너</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">공공·정책</div>
+        <div class="cc-d">공공발주 인증 제도화 · 직종 정규화 파트너</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">경영·금융</div>
+        <div class="cc-d">플랫폼 사업화 · 기능인 금융공제 설계 파트너</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

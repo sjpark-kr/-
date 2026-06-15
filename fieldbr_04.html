@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
 <title>FieldBridge — 03 산학협력</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -48,34 +49,69 @@ body {
 .body { padding: 0 64px; }
 
 /* ══════════════════════════════════════
-   PAGE 1  ·  COVER
+   PAGE 1  ·  COVER (revised: with image grid)
 ══════════════════════════════════════ */
-.cover-rule { width: 100%; height: 1px; background: #111; margin-top: 8px; }
+.cover-rule { width: 100%; height: 1px; background: #111; margin-top: 6px; }
 
-.cover-title {
-  font-size: 118px; font-weight: 900; color: #111;
-  line-height: 1; margin-top: 78px; letter-spacing: -3px;
+.cover-info-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-top: 18px;
 }
-.cover-sub {
-  font-size: 30px; font-weight: 700; color: #111; margin-top: 14px;
+.cover-title {
+  font-size: 80px; font-weight: 900; color: #111;
+  line-height: 1; letter-spacing: -2px;
+}
+.cover-meta { text-align: right; }
+.cover-meta-name { font-size: 18px; font-weight: 700; color: #111; }
+.cover-meta-org  { font-size: 13px; font-weight: 400; color: #666; margin-top: 3px; }
+
+.cover-subtitle {
+  font-size: 16px; font-weight: 700; color: #333;
+  margin-top: 8px;
 }
 .cover-tag {
-  font-size: 17px; font-weight: 300; color: #666; margin-top: 10px; letter-spacing: 0.3px;
+  font-size: 13px; font-weight: 300; color: #888;
+  margin-top: 4px; letter-spacing: 0.2px;
 }
 
-.cover-foot {
-  position: absolute; bottom: 44px; left: 64px; right: 64px;
-  display: flex; align-items: flex-end;
+/* Image grid */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+  height: 380px;
 }
-.ci { margin-right: 44px; }
-.ci-lbl { font-size: 11px; color: #999; margin-bottom: 3px; }
-.ci-val { font-size: 16px; font-weight: 700; color: #111; }
+.img-slot {
+  background: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.img-slot img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; top: 0; left: 0;
+}
+.img-slot-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.52);
+  color: #fff; font-size: 11px; font-weight: 600;
+  padding: 6px 10px; line-height: 1.3;
+}
+.img-slot-add {
+  font-size: 28px; color: #bbb; line-height: 1;
+  margin-bottom: 6px;
+}
+.img-slot-hint {
+  font-size: 10px; color: #aaa; text-align: center; padding: 0 8px;
+}
 
-.badge {
-  margin-left: auto;
+.cover-badge {
+  position: absolute; bottom: 22px; right: 64px;
   background: #111; color: #fff;
-  padding: 10px 26px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 8px 22px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
 }
 
 /* ══════════════════════════════════════
@@ -280,124 +316,72 @@ body {
 .age-fill { width: 100%; }
 .age-lbl { font-size: 9px; color: #888; }
 .age-val { font-size: 9px; font-weight: 700; color: #333; }
-@page { size: 1440px 810px; margin: 0; }
+@page { size: 38.10cm 21.44cm; margin: 0; }
 @media print { html, body { width: 1440px; height: 810px; background: #fff; } .slide { box-shadow: none; } }
 </style>
+<script>
+(function(){
+  function scale(){
+    var el = document.querySelector('.slide');
+    var s = Math.min((window.innerWidth-20)/1440, (window.innerHeight-20)/810);
+    if(s<1){ el.style.transform='scale('+s+')'; el.style.transformOrigin='top center'; document.body.style.height=(810*s+20)+'px'; }
+  }
+  window.addEventListener('load',scale);
+  window.addEventListener('resize',scale);
+})();
+</script>
 </head>
 <body>
-    <div class="prob-layout">
-      <!-- LEFT: problems -->
-      <div class="prob-left">
-        <div class="quote" style="margin-top:14px;margin-bottom:0;">"GDP의 25%를 움직이는 산업이, 맥킨지 22개 산업 디지털화 지수에서 최하위다. 이것은 위기가 아니라 <strong>가장 큰 혁신 공백</strong>이다."</div>
-        <div class="p-item">
-          <div class="p-ghost">1</div>
-          <div>
-            <div class="p-title">설계는 진화, 현장은 30년째 정체</div>
-            <div class="p-desc">BIM·생성형AI로 설계가 mm 단위로 정밀해질수록 현장과의 간극은 더 벌어진다. 맥킨지 <strong>22개 산업 중 건설 최하위권</strong> — 디지털 전환 체감 0%.</div>
-          </div>
-        </div>
-        <div class="p-item">
-          <div class="p-ghost">2</div>
-          <div>
-            <div class="p-title">현장 인력 구조의 이중 위기</div>
-            <div class="p-desc">기능인력 평균 <strong>54세</strong> → 숙련 절벽 / 외국인 비중 <strong>25~30%</strong> → 언어 장벽. 반도체 불량은 교체하면 되지만, <strong>시공 불량은 그 안에서 사는 사람들의 30년에 남는다.</strong></div>
-          </div>
-        </div>
-        <div class="p-item">
-          <div class="p-ghost">3</div>
-          <div>
-            <div class="p-title">공공건물 품질 붕괴</div>
-            <div class="p-desc">공공설계 당선작이 발주·시공에서 의도가 훼손된다. GDP 20~25%를 움직이는 산업의 품질이 곧 <strong>시민의 삶의 질</strong>이다.</div>
-          </div>
-        </div>
-      </div>
-      <!-- RIGHT: data charts -->
-      <div class="prob-right">
-        <!-- Chart 1: building lifecycle -->
-        <div class="data-card">
-          <div class="data-card-title">건물 수명 비교 — 자산 vs 소비재</div>
-          <div class="lifecycle">
-            <div class="lc-row">
-              <div class="lc-lbl">유럽</div>
-              <div class="lc-bar-wrap">
-                <div class="lc-bar eu"><span>100년+</span></div>
-              </div>
-            </div>
-            <div class="lc-row">
-              <div class="lc-lbl">한국</div>
-              <div class="lc-bar-wrap">
-                <div class="lc-bar kr"><span style="color:#555;">~30년</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="data-card-note">수명 차이 = 내구성 아닌 설계의도 전달 여부</div>
-        </div>
-        <!-- Chart 2: McKinsey digitalization -->
-        <div class="data-card">
-          <div class="data-card-title">산업별 디지털화 지수 (McKinsey, 22개 산업)</div>
-          <div class="digi-list">
-            <div class="digi-row">
-              <div class="digi-lbl">ICT</div>
-              <div class="digi-bar-wrap"><div class="digi-fill" style="width:100%;background:#111;height:13px;"></div></div>
-              <div class="digi-pct">100%</div>
-            </div>
-            <div class="digi-row">
-              <div class="digi-lbl">금융</div>
-              <div class="digi-bar-wrap"><div class="digi-fill" style="width:73%;background:#555;height:13px;"></div></div>
-              <div class="digi-pct">73%</div>
-            </div>
-            <div class="digi-row">
-              <div class="digi-lbl">제조</div>
-              <div class="digi-bar-wrap"><div class="digi-fill" style="width:50%;background:#888;height:13px;"></div></div>
-              <div class="digi-pct">50%</div>
-            </div>
-            <div class="digi-row">
-              <div class="digi-lbl" style="color:#c00;font-weight:700;">건설 ▼</div>
-              <div class="digi-bar-wrap"><div class="digi-fill" style="width:16%;background:#c00;height:13px;"></div></div>
-              <div class="digi-pct" style="color:#c00;font-weight:700;">16%</div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart 3: workforce age -->
-        <div class="data-card">
-          <div class="data-card-title">건설 기능인력 연령 분포</div>
-          <div style="display:flex;align-items:flex-end;gap:8px;height:70px;padding-bottom:4px;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
-              <div style="font-size:9px;font-weight:700;color:#333;">8%</div>
-              <div style="width:100%;background:#ddd;height:14px;"></div>
-              <div style="font-size:9px;color:#999;">30대</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
-              <div style="font-size:9px;font-weight:700;color:#333;">22%</div>
-              <div style="width:100%;background:#aaa;height:28px;"></div>
-              <div style="font-size:9px;color:#999;">40대</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
-              <div style="font-size:9px;font-weight:700;color:#111;">38%</div>
-              <div style="width:100%;background:#555;height:48px;"></div>
-              <div style="font-size:9px;color:#999;">50대</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
-              <div style="font-size:9px;font-weight:700;color:#c00;">32%</div>
-              <div style="width:100%;background:#c00;height:40px;"></div>
-              <div style="font-size:9px;color:#999;">60대+</div>
-            </div>
-          </div>
-          <div class="data-card-note">평균 연령 54세 → 10년 내 숙련 기능공 절벽</div>
-        </div>
-        <!-- Stat strip -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div style="background:#111;color:#fff;padding:10px 12px;">
-            <div style="font-size:9px;color:#aaa;margin-bottom:3px;">연관산업 GDP</div>
-            <div style="font-size:22px;font-weight:900;line-height:1;">20~25%</div>
-          </div>
-          <div style="background:#f0f0f0;padding:10px 12px;">
-            <div style="font-size:9px;color:#999;margin-bottom:3px;">생산유발계수</div>
-            <div style="font-size:22px;font-weight:900;color:#111;line-height:1;">× 1.9</div>
-          </div>
-        </div>
-      </div>
+<div class="slide">
+  <div class="top">
+    <div class="date">2026.07.08.</div>
+    <div class="h-row">
+      <span class="h-num">03</span>
+      <span class="h-name">산학협력 방안: 초학제 연구팀 구성</span>
     </div>
+    <div class="h-line"><div class="h-thick"></div><div class="h-thin"></div></div>
+    <span class="close">×</span>
+  </div>
+  <div class="body">
+    <div class="biz-lead" style="margin-top:18px;">"건설 디지털 전환은 어느 단일 기관이 독점할 수 없다. AR·AI·로보틱스·블록체인 각 레이어를 선도하는 연구팀과 기술을 공동 개발하고, 실제 현장 실증으로 상용화까지 연결한다."</div>
+    <table class="cmp" style="margin-top:16px;">
+      <thead>
+        <tr>
+          <th style="text-align:left;width:18%;">협력 분야</th>
+          <th style="text-align:left;width:30%;">담당 연구실 / 기관</th>
+          <th style="text-align:left;">주요 역할 및 추진 내용</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700;color:#111;">AR / XR</td>
+          <td>서울대 전기정보공학부<br><span style="font-size:11px;color:#888;">XR·3D 공간인식 연구실</span></td>
+          <td style="text-align:left;">BIM-현장 실시간 공간 정합 알고리즘 개발, 스마트글라스 현장 UI 최적화 및 PoC</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">AI / CV · NLP</td>
+          <td>서울대 AI연구원 (AIIS)<br><span style="font-size:11px;color:#888;">컴퓨터비전 · 자연어처리</span></td>
+          <td style="text-align:left;">시공 오류 실시간 감지 모델, 다국어 작업지시 번역·음성합성 엔진 개발</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">로보틱스 · VR</td>
+          <td>KAIST 로봇공학학제전공<br><span style="font-size:11px;color:#888;">건설자동화 · HRI 연구</span></td>
+          <td style="text-align:left;">타일·미장 작업 로봇 시스템, 인간-로봇 협업 인터페이스, VR 기능 훈련 콘텐츠</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">블록체인 · 정책</td>
+          <td>서울대 컴퓨터공학부<br><span style="font-size:11px;color:#888;">분산시스템 · 서울대 법학전문대학원</span></td>
+          <td style="text-align:left;">시공 이력 불변 기록 스마트계약, 설계-시공 일치율 인증 제도화 법제 연구</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">스마트건설 실증</td>
+          <td>한국건설기술연구원 (KICT)<br><span style="font-size:11px;color:#888;">스마트건설지원센터</span></td>
+          <td style="text-align:left;">공공건물 현장 PoC 설계·운영, 국토부 스마트건설 표준화 연계, 정부 위탁과제</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 </body>
 </html>
