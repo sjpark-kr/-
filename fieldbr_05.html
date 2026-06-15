@@ -322,12 +322,11 @@ body {
 <script>
 (function(){
   function scale(){
-    var el = document.querySelector('.slide');
-    var s = Math.min((window.innerWidth-20)/1440, (window.innerHeight-20)/810);
-    if(s<1){ el.style.transform='scale('+s+')'; el.style.transformOrigin='top center'; document.body.style.height=(810*s+20)+'px'; }
+    var el=document.querySelector('.slide');
+    var s=Math.min((window.innerWidth-20)/1440,(window.innerHeight-20)/810);
+    if(s<1){el.style.transform='scale('+s+')';el.style.transformOrigin='top center';document.body.style.height=(810*s+20)+'px';}
   }
-  window.addEventListener('load',scale);
-  window.addEventListener('resize',scale);
+  window.addEventListener('load',scale);window.addEventListener('resize',scale);
 })();
 </script>
 </head>
