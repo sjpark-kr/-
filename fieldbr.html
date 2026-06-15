@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>FieldBridge — TAIC 15주차 비즈니스 모델링</title>
+<meta name="viewport" content="width=1440">
+<title>FieldBridge — TAIC 15주차 산학협력 제안</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -280,11 +281,31 @@ body {
 .age-val { font-size: 9px; font-weight: 700; color: #333; }
 
 /* ─── PRINT ─── */
+@page { size: 38.10cm 21.44cm; margin: 0; }
 @media print {
   body { background: #fff; padding: 0; }
   .slide { margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
 }
 </style>
+<script>
+(function(){
+  function scale(){
+    var slides = document.querySelectorAll('.slide');
+    var sw = window.innerWidth, sh = window.innerHeight;
+    var s = Math.min((sw - 40) / 1440, (sh - 40) / 810);
+    if(s < 1){
+      slides.forEach(function(el){
+        el.style.transform = 'scale('+s+')';
+        el.style.transformOrigin = 'top center';
+        el.style.marginBottom = (810*(s-1)+60)+'px';
+      });
+      document.body.style.padding = '20px 0';
+    }
+  }
+  window.addEventListener('load', scale);
+  window.addEventListener('resize', scale);
+})();
+</script>
 </head>
 <body>
 

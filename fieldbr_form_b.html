@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FieldBridge — 과제 B 산학협력 제안서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: #ccc;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+/* A4 portrait page */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: #fff;
+  padding: 11mm 15mm 10mm;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Header */
+.doc-title {
+  font-size: 11pt;
+  font-weight: 900;
+  color: #111;
+  text-align: center;
+  letter-spacing: 0.3px;
+  padding-bottom: 4pt;
+  border-bottom: 2.5px solid #111;
+  margin-bottom: 5pt;
+}
+
+.meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4pt;
+  margin-bottom: 6pt;
+}
+.meta-box {
+  border: 1px solid #ccc;
+  padding: 3.5pt 7pt;
+}
+.meta-lbl { font-size: 6.5pt; color: #999; margin-bottom: 1.5pt; letter-spacing: 0.3px; }
+.meta-val { font-size: 8.5pt; font-weight: 700; color: #111; }
+.meta-box.full { grid-column: 1 / -1; }
+
+/* Section */
+.section { margin-bottom: 6pt; }
+.sec-title {
+  font-size: 8pt;
+  font-weight: 900;
+  background: #111;
+  color: #fff;
+  padding: 3pt 7pt;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 5pt;
+}
+.sec-title .num { font-size: 11pt; font-weight: 900; }
+
+.sec-body { border: 1px solid #ccc; border-top: none; padding: 5pt 8pt; }
+
+.item { display: flex; gap: 6pt; margin-bottom: 4pt; }
+.item:last-child { margin-bottom: 0; }
+.item-num { font-size: 7pt; font-weight: 700; color: #888; flex-shrink: 0; width: 14pt; padding-top: 0.5pt; }
+.item-txt { font-size: 7.8pt; color: #333; line-height: 1.58; }
+.item-txt strong { color: #111; font-weight: 700; }
+
+/* Collaboration table */
+.collab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 7.2pt;
+}
+.collab-table thead th {
+  background: #555;
+  color: #fff;
+  padding: 3pt 6pt;
+  font-weight: 700;
+  text-align: left;
+  border: 1px solid #444;
+}
+.collab-table thead th:first-child { width: 15%; background: #333; }
+.collab-table thead th:nth-child(2) { width: 31%; }
+.collab-table tbody td {
+  padding: 3pt 6pt;
+  border: 1px solid #ccc;
+  color: #333;
+  vertical-align: top;
+  line-height: 1.45;
+}
+.collab-table tbody td:first-child { font-weight: 700; color: #111; background: #f8f8f8; }
+.collab-table tbody tr:nth-child(even) td { background: #f4f4f4; }
+.collab-table tbody tr:nth-child(even) td:first-child { background: #ebebeb; }
+
+/* Revenue highlights */
+.rev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4pt;
+  margin-top: 4pt;
+}
+.rev-item { border-left: 3px solid #111; padding: 3pt 6pt; background: #f8f8f8; }
+.rev-item-lbl { font-size: 6.5pt; color: #888; margin-bottom: 1pt; }
+.rev-item-val { font-size: 8.5pt; font-weight: 700; color: #111; }
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding-top: 5pt;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left { font-size: 7pt; color: #999; }
+.footer-right { font-size: 6.5pt; color: #bbb; }
+
+/* Print */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { background: #fff; padding: 0; }
+  .page { box-shadow: none; min-height: 297mm; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="doc-title">[15주차] 첨단융합 최고위과정 비즈니스 모델링 과제</div>
+
+  <div class="meta-row">
+    <div class="meta-box">
+      <div class="meta-lbl">제안자</div>
+      <div class="meta-val">박수정 / 건축공방 (건축 설계)</div>
+    </div>
+    <div class="meta-box">
+      <div class="meta-lbl">프로젝트 명</div>
+      <div class="meta-val">FieldBridge — 건설산업 디지털 전환 플랫폼</div>
+    </div>
+  </div>
+
+  <!-- 1. 문제 정의 -->
+  <div class="section">
+    <div class="sec-title"><span class="num">1</span> 문제 정의</div>
+    <div class="sec-body">
+      <div class="item">
+        <div class="item-num">1.1</div>
+        <div class="item-txt"><strong>설계–시공 간극 및 산업 정체:</strong> BIM·생성형AI로 설계는 mm 단위로 정밀해졌으나 건설 현장은 30년째 종이 도면과 어림 시공에서 벗어나지 못했다. McKinsey 22개 산업 디지털화 지수 <strong>건설업 최하위(16%)</strong> — 연관산업 포함 GDP 20~25%, 생산유발계수 1.9의 거대 산업이 디지털 전환 사각지대에 있다. 유럽은 건물을 100년짜리 공공 자산으로 짓고, 한국은 30년짜리 소비재로 짓는다. 이 차이는 내구성이 아니라 <strong>설계 의도가 현장까지 전달되느냐</strong>의 문제다.</div>
+      </div>
+      <div class="item">
+        <div class="item-num">1.2</div>
+        <div class="item-txt"><strong>이중 인력 위기 + 공공건물 품질 붕괴:</strong> 기능인력 평균 연령 <strong>54세</strong> → 10년 내 숙련 절벽 / 외국인 비중 <strong>25~30%</strong> → 언어 장벽으로 설계 의도 전달 불가 / 기능 교육 체계 전무. 공공설계공모 당선작이 발주·시공 과정에서 의도가 훼손되고, 객관적 검증 도구가 없다. <strong>시공 품질 실패는 수출 지표가 아닌 시민의 30년 삶에 남는다.</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 적용 첨단기술 -->
+  <div class="section">
+    <div class="sec-title"><span class="num">2</span> 적용 첨단기술</div>
+    <div class="sec-body">
+      <div class="item">
+        <div class="item-num">2.1</div>
+        <div class="item-txt"><strong>AR/XR — 현장 도면 오버레이:</strong> BIM 데이터를 태블릿·스마트글라스로 실제 현장 공간에 실시간 중첩. 기능공이 도면 해석 없이 설계 의도를 직관적으로 파악, 오시공을 공정 중에 차단.</div>
+      </div>
+      <div class="item">
+        <div class="item-num">2.2</div>
+        <div class="item-txt"><strong>AI/컴퓨터비전·NLP — 품질 검수 + 다국어 작업지시:</strong> 스마트폰 촬영만으로 수직·수평·마감 오류 실시간 감지. 시공 지침을 베트남어·우즈벡어 등 다국어로 즉시 변환 + 음성 안내. 언어 장벽 완전 제거.</div>
+      </div>
+      <div class="item">
+        <div class="item-num">2.3</div>
+        <div class="item-txt"><strong>로보틱스+VR+블록체인 — 자동화·인력 재정의·인증:</strong> 로봇이 타일·미장 등 반복 작업 수행 → 인간은 품질 검수 전문직(CQP)으로 전환. VR로 숙련 노하우 디지털 계승. BIM 원본·시공 전 과정을 블록체인 등록 → 데이터가 품질을 증명.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 산학협력 방안 -->
+  <div class="section">
+    <div class="sec-title"><span class="num">3</span> 산학협력 방안</div>
+    <div class="sec-body" style="padding: 0;">
+      <table class="collab-table">
+        <thead>
+          <tr>
+            <th>협력 분야</th>
+            <th>담당 연구실 / 기관</th>
+            <th>주요 역할 및 추진 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AR / XR</td>
+            <td>서울대 전기정보공학부 XR·3D공간인식 연구실</td>
+            <td>BIM–현장 실시간 공간 정합 알고리즘 개발, 스마트글라스 현장 UI 최적화 및 공공건물 PoC</td>
+          </tr>
+          <tr>
+            <td>AI / CV · NLP</td>
+            <td>서울대 AI연구원 (AIIS) 컴퓨터비전·자연어처리</td>
+            <td>시공 오류 실시간 감지 모델, 다국어 작업지시 번역·음성합성 엔진 공동 개발</td>
+          </tr>
+          <tr>
+            <td>로보틱스 · VR</td>
+            <td>KAIST 로봇공학학제전공 건설자동화·HRI 연구</td>
+            <td>타일·미장 작업 자동화 로봇, 인간–로봇 협업 인터페이스, VR 기능 훈련 콘텐츠 제작</td>
+          </tr>
+          <tr>
+            <td>블록체인 · 정책</td>
+            <td>서울대 컴퓨터공학부 분산시스템연구실 + 법학전문대학원</td>
+            <td>시공 이력 불변 기록 스마트계약, 설계–시공 일치율 인증 제도화 법제 연구</td>
+          </tr>
+          <tr>
+            <td>현장 실증</td>
+            <td>한국건설기술연구원 (KICT) 스마트건설지원센터</td>
+            <td>공공건물 현장 PoC 설계·운영, 국토부 스마트건설 표준화 연계, 정부 위탁과제 발굴</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4. 수익 및 기대효과 -->
+  <div class="section">
+    <div class="sec-title"><span class="num">4</span> 수익 및 기대효과</div>
+    <div class="sec-body">
+      <div class="item" style="margin-bottom:6pt;">
+        <div class="item-num">4.1</div>
+        <div class="item-txt"><strong>수익 구조:</strong> ① 현장 SaaS — 현장당 월 500만~2,000만 × 100개 현장 → <strong>60억~240억</strong> ② 공공건물 품질 인증 — 건당 5,000만~3억 × 50건 → <strong>25억~150억</strong> ③ CQP 기능학교+정부위탁 → <strong>30억~100억</strong> ④ 해외 사전교육 → <strong>10억~20억</strong></div>
+      </div>
+      <div class="rev-grid">
+        <div class="rev-item">
+          <div class="rev-item-lbl">연 매출 목표 (초기)</div>
+          <div class="rev-item-val">125억 ~ 510억원</div>
+        </div>
+        <div class="rev-item">
+          <div class="rev-item-lbl">TAM (건설+연관산업)</div>
+          <div class="rev-item-val">GDP 20~25% · 연 300조+</div>
+        </div>
+      </div>
+      <div class="item" style="margin-top:6pt;">
+        <div class="item-num">4.2</div>
+        <div class="item-txt"><strong>기대효과:</strong> 공공건물 설계–시공 일치율 향상 → 한국 공공 인프라 품질 기준 확립 → FieldBridge 인증 건물의 해외 건축상 수상·수주 포트폴리오화 → <strong>K-Architecture 글로벌 브랜드</strong>. 건설산업 디지털 전환 표준 모델로서 동남아·중동 해외 수출 가능성. GDP 25%를 움직이는 내수 산업의 품질 혁신 = 시민의 삶의 질 직결.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">TAIC 15주차 · 비즈니스 모델링 과제 B · 2026.07.08.</div>
+    <div class="footer-right">FieldBridge / 건축공방 ArchiWorkshop · office@archiworkshop.kr</div>
+  </div>
+
+</div>
+</body>
+</html>
