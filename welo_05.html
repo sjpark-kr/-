@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>WELO — 04 수익 및 기대효과</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: #b0b0b0; padding: 50px 0;
+}
+.slide {
+  width: 1440px; height: 810px; background: #fff;
+  position: relative; overflow: hidden;
+  margin: 0 auto 60px; box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.top { padding: 26px 64px 0; }
+.date { font-size: 13px; color: #555; letter-spacing: 0.3px; margin-bottom: 6px; }
+.close { position: absolute; top: 26px; right: 64px; font-size: 22px; color: #555; font-weight: 300; }
+.h-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 7px; }
+.h-num { font-size: 24px; font-weight: 900; color: #111; }
+.h-name { font-size: 15px; font-weight: 500; color: #333; }
+.h-line { display: flex; align-items: center; }
+.h-thick { width: 290px; height: 5px; background: #111; flex-shrink: 0; }
+.h-thin  { flex: 1; height: 1px; background: #ccc; }
+.body { padding: 0 64px; }
+
+.rev { width: 100%; border-collapse: collapse; margin-top: 16px; margin-bottom: 16px; font-size: 13px; }
+.rev thead th {
+  background: #111; color: #fff; padding: 11px 16px;
+  font-weight: 700; text-align: center;
+}
+.rev thead th:first-child { text-align: left; width: 30%; }
+.rev tbody td {
+  padding: 10px 16px; border: 1px solid #e8e8e8;
+  text-align: center; color: #444;
+}
+.rev tbody td:first-child { text-align: left; font-weight: 600; background: #f8f8f8; }
+.rev tbody tr:nth-child(even) td { background: #f4f4f4; }
+.rev tbody tr:nth-child(even) td:first-child { background: #ebebeb; }
+.rev .hl { font-weight: 700; color: #111; }
+
+.vision-block { background: #111; color: #fff; padding: 18px 28px; margin-bottom: 14px; }
+.vision-txt { font-size: 14px; font-weight: 400; line-height: 1.85; }
+.vision-txt strong { font-weight: 700; }
+
+.collab-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
+.cc { background: #f5f5f5; padding: 12px; text-align: center; }
+.cc-f { font-size: 12px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.cc-d { font-size: 10.5px; color: #666; line-height: 1.6; }
+
+@page { size: 38.10cm 21.44cm; margin: 0; }
+@media print { html, body { width: 1440px; height: 810px; background: #fff; } .slide { box-shadow: none; } }
+</style>
+<script>
+(function(){
+  function scale(){
+    var el=document.querySelector('.slide');
+    var s=Math.min((window.innerWidth-20)/1440,(window.innerHeight-20)/810);
+    if(s<1){el.style.transform='scale('+s+')';el.style.transformOrigin='top center';document.body.style.height=(810*s+20)+'px';}
+  }
+  window.addEventListener('load',scale);window.addEventListener('resize',scale);
+})();
+</script>
+</head>
+<body>
+<div class="slide">
+  <div class="top">
+    <div class="date">2026.07.08.</div>
+    <div class="h-row">
+      <span class="h-num">04</span>
+      <span class="h-name">수익 및 기대효과: 2,000만 가구 주거 혁신</span>
+    </div>
+    <div class="h-line"><div class="h-thick"></div><div class="h-thin"></div></div>
+    <span class="close">×</span>
+  </div>
+  <div class="body">
+    <table class="rev">
+      <thead>
+        <tr>
+          <th style="text-align:left;">수익 트랙</th>
+          <th>단가 / 구조</th>
+          <th>초기 목표</th>
+          <th>연 매출</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>B2D</strong> — 건설사 공급형</td>
+          <td>세대당 30만원 (설계 라이선스)</td>
+          <td>연 40만 세대</td>
+          <td class="hl">1,200억</td>
+        </tr>
+        <tr>
+          <td><strong>B2C</strong> — 거주자 구독형</td>
+          <td>월 3~5만원 (AI 공간·에너지 서비스)</td>
+          <td>구독 100만 가구</td>
+          <td class="hl">360~600억</td>
+        </tr>
+        <tr>
+          <td><strong>B2G</strong> — 노후아파트 ESCo</td>
+          <td>에너지 절감분 수익 배분 (20~30%)</td>
+          <td>그린리모델링 정책 연계</td>
+          <td class="hl">수천억 (정부 예산 레버리지)</td>
+        </tr>
+        <tr>
+          <td><strong>데이터 IP</strong> — 라이선싱</td>
+          <td>주거 행동 데이터 · AI 모델 API</td>
+          <td>금융·의료·가전 파트너</td>
+          <td class="hl">추가 수익원</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="vision-block">
+      <div class="vision-txt">
+        <strong>건축가가 논문으로 증명한 기술을, 집에 사는 사람들의 일상에 연결한다.</strong><br>
+        WELO는 2,000만 가구의 삶을 최적화하는 첫 번째 AI 주거 플랫폼이다.<br>
+        아파트를 <strong>사는(buy) 순간</strong>이 아닌 <strong>사는(live) 매일</strong>이 WELO의 비즈니스다.
+      </div>
+    </div>
+    <div style="font-size:11px;font-weight:700;color:#999;letter-spacing:1px;margin-bottom:8px;">TAIC 원우들과 함께 만들 팀 — 각 트랙의 파트너</div>
+    <div class="collab-grid">
+      <div class="cc">
+        <div class="cc-f">에너지공학 AI</div>
+        <div class="cc-d">강화학습 외피 제어 · ESCo 모델 설계</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">반도체 IoT</div>
+        <div class="cc-d">엣지AI 센서 · 스마트홈 하드웨어 파트너</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">부동산 금융</div>
+        <div class="cc-d">B2D 건설사 연계 · 공급 금융 구조화</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">공공 정책</div>
+        <div class="cc-d">그린리모델링 제도 연계 · 정부 위탁</div>
+      </div>
+      <div class="cc">
+        <div class="cc-f">의료 바이오</div>
+        <div class="cc-d">고령 거주자 헬스케어 데이터 연계</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

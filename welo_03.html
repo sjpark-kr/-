@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>WELO — 02 솔루션</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: #b0b0b0; padding: 50px 0;
+}
+.slide {
+  width: 1440px; height: 810px; background: #fff;
+  position: relative; overflow: hidden;
+  margin: 0 auto 60px; box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.top { padding: 26px 64px 0; }
+.date { font-size: 13px; color: #555; letter-spacing: 0.3px; margin-bottom: 6px; }
+.close { position: absolute; top: 26px; right: 64px; font-size: 22px; color: #555; font-weight: 300; }
+.h-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 7px; }
+.h-num { font-size: 24px; font-weight: 900; color: #111; }
+.h-name { font-size: 15px; font-weight: 500; color: #333; }
+.h-line { display: flex; align-items: center; }
+.h-thick { width: 290px; height: 5px; background: #111; flex-shrink: 0; }
+.h-thin  { flex: 1; height: 1px; background: #ccc; }
+.body { padding: 0 64px; }
+
+.tech-lead { font-size: 14px; font-weight: 500; color: #333; margin-top: 18px; margin-bottom: 18px; }
+.tech-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; gap: 16px; height: 572px;
+}
+.t-card {
+  background: #f5f5f5; padding: 22px 28px;
+  position: relative; display: flex; flex-direction: column;
+}
+.t-card::after {
+  content: ''; position: absolute; bottom: 0; right: 0;
+  width: 16px; height: 16px; background: #fff;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+.t-ghost { font-size: 54px; font-weight: 900; color: #e0e0e0; line-height: 1; margin-bottom: 4px; }
+.t-tag {
+  display: inline-block; border: 1.5px solid #333;
+  padding: 2px 8px; font-size: 10px; font-weight: 700;
+  color: #333; letter-spacing: 1px; margin-bottom: 8px; align-self: flex-start;
+}
+.t-source {
+  display: inline-block; background: #111; color: #fff;
+  padding: 2px 8px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.5px; margin-bottom: 8px; align-self: flex-start;
+}
+.t-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 7px; }
+.t-desc  { font-size: 12px; color: #555; line-height: 1.78; }
+.t-foot  { margin-top: auto; padding-top: 8px; font-size: 10px; color: #888; border-top: 1px solid #e0e0e0; }
+.t-foot strong { color: #333; }
+
+@page { size: 38.10cm 21.44cm; margin: 0; }
+@media print { html, body { width: 1440px; height: 810px; background: #fff; } .slide { box-shadow: none; } }
+</style>
+<script>
+(function(){
+  function scale(){
+    var el=document.querySelector('.slide');
+    var s=Math.min((window.innerWidth-20)/1440,(window.innerHeight-20)/810);
+    if(s<1){el.style.transform='scale('+s+')';el.style.transformOrigin='top center';document.body.style.height=(810*s+20)+'px';}
+  }
+  window.addEventListener('load',scale);window.addEventListener('resize',scale);
+})();
+</script>
+</head>
+<body>
+<div class="slide">
+  <div class="top">
+    <div class="date">2026.07.08.</div>
+    <div class="h-row">
+      <span class="h-num">02</span>
+      <span class="h-name">솔루션: 3-Layer AI 주거 전환 시스템</span>
+    </div>
+    <div class="h-line"><div class="h-thick"></div><div class="h-thin"></div></div>
+    <span class="close">×</span>
+  </div>
+  <div class="body">
+    <div class="tech-lead">논문 3편이 증명한 기술을 하나의 플랫폼으로 — 건축가가 직접 연구하고 설계한 AI 주거 전환 시스템.</div>
+    <div class="tech-grid">
+      <div class="t-card">
+        <div class="t-ghost">01</div>
+        <div class="t-tag">생성형AI + 인필</div>
+        <div class="t-source">Vol.7 No.2 논문</div>
+        <div class="t-title">AI 기반 인필 시스템</div>
+        <div class="t-desc">기둥·보 구조 기반의 개방형 인필(Infill) 레이어 위에 생성형 AI가 1인 가구·재택근무·고령화 등 라이프스타일을 분석해 최적 공간 배치를 제안. 거주자는 AI와 협업해 집을 재구성한다.</div>
+        <div class="t-foot">→ 핵심 기술: <strong>생성형AI · BIM · 인필구조 공법</strong></div>
+      </div>
+      <div class="t-card">
+        <div class="t-ghost">02</div>
+        <div class="t-tag">AI 인터랙티브 입면</div>
+        <div class="t-source">Vol.7 No.3 논문</div>
+        <div class="t-title">에너지 연계 스마트 외피</div>
+        <div class="t-desc">일조·온도·거주자 활동을 실시간 감지해 외피(창·루버)를 동적 제어. 강화학습(RL) 기반 통합 제어 시스템으로 Al Bahar 대비 50%, HouseZero 대비 79% 에너지 절감 잠재력 실증.</div>
+        <div class="t-foot">→ 핵심 기술: <strong>강화학습 · IoT 센서 · 동적 파사드</strong></div>
+      </div>
+      <div class="t-card">
+        <div class="t-ghost">03</div>
+        <div class="t-tag">디지털 트윈</div>
+        <div class="t-source">Vol.7 No.2·3 공통</div>
+        <div class="t-title">개인 주거 디지털트윈 구축</div>
+        <div class="t-desc">각 세대를 디지털 트윈화해 거주자 데이터(에너지·동선·선호)를 축적. AI 인필 최적화·입면 제어·예측 유지관리를 하나의 플랫폼에서 통합 운영. 거주자의 삶이 데이터가 되고, 데이터가 집을 바꾼다.</div>
+        <div class="t-foot">→ 핵심 기술: <strong>디지털트윈 · 엣지컴퓨팅 · 데이터파이프라인</strong></div>
+      </div>
+      <div class="t-card">
+        <div class="t-ghost">04</div>
+        <div class="t-tag">지능형 플랫폼</div>
+        <div class="t-source">Vol.7 No.1 논문</div>
+        <div class="t-title">미래형 주거 플랫폼 WELO</div>
+        <div class="t-desc">지능형 건축 플랫폼 기반의 미래형 주거 모델(Vol.7 No.1)을 비즈니스로 구현. B2D(건설사 공급형), B2C(거주자 구독형), B2G(공공 노후아파트 에너지사업) 3-트랙 수익 구조. 건축가의 논문이 플랫폼이 된다.</div>
+        <div class="t-foot">→ 핵심 기술: <strong>AI 플랫폼 · ESCo · 데이터 IP 라이선싱</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>WELO — 03 산학협력</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: #b0b0b0; padding: 50px 0;
+}
+.slide {
+  width: 1440px; height: 810px; background: #fff;
+  position: relative; overflow: hidden;
+  margin: 0 auto 60px; box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.top { padding: 26px 64px 0; }
+.date { font-size: 13px; color: #555; letter-spacing: 0.3px; margin-bottom: 6px; }
+.close { position: absolute; top: 26px; right: 64px; font-size: 22px; color: #555; font-weight: 300; }
+.h-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 7px; }
+.h-num { font-size: 24px; font-weight: 900; color: #111; }
+.h-name { font-size: 15px; font-weight: 500; color: #333; }
+.h-line { display: flex; align-items: center; }
+.h-thick { width: 290px; height: 5px; background: #111; flex-shrink: 0; }
+.h-thin  { flex: 1; height: 1px; background: #ccc; }
+.body { padding: 0 64px; }
+
+.biz-lead {
+  font-size: 14px; font-weight: 700; font-style: italic;
+  color: #111; margin-top: 18px; margin-bottom: 16px;
+}
+.cmp { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cmp thead th {
+  background: #111; color: #fff; padding: 12px 18px;
+  font-weight: 700; text-align: center;
+}
+.cmp thead th:first-child { background: #555; text-align: left; width: 16%; }
+.cmp thead th:nth-child(2) { background: #888; width: 28%; }
+.cmp thead th:nth-child(3) { text-align: left; }
+.cmp tbody td {
+  padding: 10px 18px; border: 1px solid #e8e8e8;
+  text-align: center; color: #444; font-size: 13px;
+}
+.cmp tbody td:first-child {
+  text-align: left; font-weight: 600; color: #222; background: #f8f8f8;
+}
+.cmp tbody td:nth-child(3) { text-align: left; }
+.cmp tbody tr:nth-child(even) td { background: #f4f4f4; }
+.cmp tbody tr:nth-child(even) td:first-child { background: #ebebeb; }
+.badge-coauthor {
+  display: inline-block; background: #111; color: #fff;
+  font-size: 9px; font-weight: 700; padding: 1px 6px;
+  letter-spacing: 0.5px; margin-left: 5px; vertical-align: middle;
+}
+
+@page { size: 38.10cm 21.44cm; margin: 0; }
+@media print { html, body { width: 1440px; height: 810px; background: #fff; } .slide { box-shadow: none; } }
+</style>
+<script>
+(function(){
+  function scale(){
+    var el=document.querySelector('.slide');
+    var s=Math.min((window.innerWidth-20)/1440,(window.innerHeight-20)/810);
+    if(s<1){el.style.transform='scale('+s+')';el.style.transformOrigin='top center';document.body.style.height=(810*s+20)+'px';}
+  }
+  window.addEventListener('load',scale);window.addEventListener('resize',scale);
+})();
+</script>
+</head>
+<body>
+<div class="slide">
+  <div class="top">
+    <div class="date">2026.07.08.</div>
+    <div class="h-row">
+      <span class="h-num">03</span>
+      <span class="h-name">산학협력 방안: 논문 기반 초학제 연구팀</span>
+    </div>
+    <div class="h-line"><div class="h-thick"></div><div class="h-thin"></div></div>
+    <span class="close">×</span>
+  </div>
+  <div class="body">
+    <div class="biz-lead">"WELO는 이미 논문으로 증명된 기술에서 출발한다. 기존 공저자 네트워크와 각 레이어 전문가를 연결해 실증 → 상용화로 확장한다."</div>
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th style="text-align:left;">협력 영역</th>
+          <th style="text-align:left;">담당 기관 / 연구팀</th>
+          <th>역할 및 기여</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700;color:#111;">AI 플랫폼 · 데이터</td>
+          <td>
+            서울대 AI연구원 (AIIS)<br>
+            <span style="font-size:11px;color:#888;">지능형 건축 플랫폼 · 생성형AI</span>
+          </td>
+          <td>인필 AI 설계 엔진 개발, 디지털트윈 데이터 파이프라인, 거주자 행동 모델링</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">에너지 · 제어공학</td>
+          <td>
+            KAIST 전기전자공학과<br>
+            <span style="font-size:11px;color:#888;">강화학습 · 에너지시스템</span>
+          </td>
+          <td>강화학습(RL) 기반 외피 통합 제어, 실시간 에너지 최적화 알고리즘 개발 및 실증</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">컴퓨터비전 · IoT</td>
+          <td>
+            서울대 컴퓨터공학부<br>
+            <span style="font-size:11px;color:#888;">엣지컴퓨팅 · 분산시스템</span>
+          </td>
+          <td>IoT 센서 네트워크 설계, 세대 디지털트윈 구축, 엣지 AI 추론 최적화</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">건축계획 · 제도<span class="badge-coauthor">기존 공저자</span></td>
+          <td>
+            중앙대 이석현 교수<br>
+            <span style="font-size:11px;color:#888;">Vol.7 No.1 교신저자 · 건축계획</span>
+          </td>
+          <td>미래형 주거 모델 이론 설계, 지능형 건축 플랫폼 기준 정립, 주거 정책 연계 제도 연구</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">스마트홈 실증</td>
+          <td>
+            한국건설기술연구원 (KICT)<br>
+            <span style="font-size:11px;color:#888;">스마트건설지원센터</span>
+          </td>
+          <td>실제 아파트 세대 PoC 설계·운영, 국토부 스마트홈 표준화 연계, 공공 위탁과제 확보</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#111;">에너지 정책 · ESCo</td>
+          <td>
+            한국에너지기술연구원 (KIER)<br>
+            <span style="font-size:11px;color:#888;">건물에너지 · ESCo 사업</span>
+          </td>
+          <td>노후 아파트 B2G ESCo 사업 설계, 에너지 절감 인증, 그린리모델링 정책 연계</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
