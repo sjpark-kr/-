@@ -27,20 +27,27 @@ body {
 .h-thin  { flex: 1; height: 1px; background: #ccc; }
 .body { padding: 0 64px; }
 
-.rev { width: 100%; border-collapse: collapse; margin-top: 16px; margin-bottom: 16px; font-size: 13px; }
+.rev { width: 100%; border-collapse: collapse; margin-top: 14px; margin-bottom: 12px; font-size: 12.5px; }
 .rev thead th {
-  background: #111; color: #fff; padding: 11px 16px;
+  background: #111; color: #fff; padding: 10px 14px;
   font-weight: 700; text-align: center;
 }
 .rev thead th:first-child { text-align: left; width: 30%; }
 .rev tbody td {
-  padding: 10px 16px; border: 1px solid #e8e8e8;
+  padding: 8px 14px; border: 1px solid #e8e8e8;
   text-align: center; color: #444;
 }
 .rev tbody td:first-child { text-align: left; font-weight: 600; background: #f8f8f8; }
-.rev tbody tr:nth-child(even) td { background: #f4f4f4; }
-.rev tbody tr:nth-child(even) td:first-child { background: #ebebeb; }
+.rev tbody tr.alt td { background: #f4f4f4; }
+.rev tbody tr.alt td:first-child { background: #ebebeb; }
 .rev .hl { font-weight: 700; color: #111; }
+.rev .b2g-head td {
+  background: #333; color: #fff; font-weight: 700;
+  font-size: 11.5px; padding: 7px 14px; letter-spacing: 0.3px;
+}
+.rev .b2g-sub td:first-child { padding-left: 24px; font-weight: 500; color: #333; background: #fafafa; }
+.rev .b2g-sub.alt td { background: #f4f4f4; }
+.rev .b2g-sub.alt td:first-child { background: #f0f0f0; }
 
 .vision-block { background: #111; color: #fff; padding: 18px 28px; margin-bottom: 14px; }
 .vision-txt { font-size: 14px; font-weight: 400; line-height: 1.85; }
@@ -88,24 +95,43 @@ body {
       </thead>
       <tbody>
         <tr>
-          <td><strong>B2D</strong> — 건설사 공급형</td>
+          <td><strong>B2D</strong> — 건설사 공급형 (신규)</td>
           <td>세대당 30만원 (설계 라이선스)</td>
           <td>연 40만 세대</td>
           <td class="hl">1,200억</td>
         </tr>
-        <tr>
+        <tr class="alt">
           <td><strong>B2C</strong> — 거주자 구독형</td>
           <td>월 3~5만원 (AI 공간·에너지 서비스)</td>
           <td>구독 100만 가구</td>
           <td class="hl">360~600억</td>
         </tr>
-        <tr>
-          <td><strong>B2G</strong> — 노후아파트 ESCo</td>
-          <td>에너지 절감분 수익 배분 (20~30%)</td>
-          <td>그린리모델링 정책 연계</td>
-          <td class="hl">수천억 (정부 예산 레버리지)</td>
+        <!-- B2G Group Header -->
+        <tr class="b2g-head">
+          <td colspan="4">B2G — 레노베이션 3-Track &nbsp;·&nbsp; 기존 아파트 대상 / 공공 발주</td>
         </tr>
-        <tr>
+        <!-- B2G-1 -->
+        <tr class="b2g-sub">
+          <td>└ <strong>ESCo 외피 교체</strong> — AI 입면·단열 설치</td>
+          <td>에너지 절감분 20~30% 수익 배분 + 그린리모델링 보조 30%</td>
+          <td>준공 15년+ 약 600만 호</td>
+          <td class="hl">수천억</td>
+        </tr>
+        <!-- B2G-2 -->
+        <tr class="b2g-sub alt">
+          <td>└ <strong>수직증축 리모델링</strong> — 기둥·보 전환 시 인필 도입</td>
+          <td>설계 라이선스 + 인필 컨설팅 번들</td>
+          <td>15년+ 증축 허가 단지</td>
+          <td class="hl">수백억</td>
+        </tr>
+        <!-- B2G-3 -->
+        <tr class="b2g-sub">
+          <td>└ <strong>공공임대 스마트화</strong> — LH·SH 일괄 위탁</td>
+          <td>구축비 + 연간 운영 라이선스</td>
+          <td>LH·SH 공공임대 단지</td>
+          <td class="hl">정부 위탁</td>
+        </tr>
+        <tr class="alt">
           <td><strong>데이터 IP</strong> — 라이선싱</td>
           <td>주거 행동 데이터 · AI 모델 API</td>
           <td>금융·의료·가전 파트너</td>
