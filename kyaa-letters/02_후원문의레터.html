@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>KYAA — 후원 문의 레터</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;500&family=Noto+Sans+KR:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --navy: #0C1425;
+  --navy-mid: #1E2D4F;
+  --text: #1C1C1A;
+  --muted: #7A7A72;
+  --rule: #D4D4CE;
+  --accent: #2C4A8C;
+  --bg: #ECEAE6;
+}
+@page { size: A4; margin: 0; }
+body {
+  font-family: 'Noto Serif KR', serif;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  padding: 48px 0 64px;
+  min-height: 100vh;
+}
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+}
+
+/* ── Top accent bar ── */
+.top-bar {
+  height: 5px;
+  background: var(--navy);
+}
+
+/* ── Header ── */
+.header {
+  padding: 12mm 22mm 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo-mark {
+  width: 48px;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.header-right {
+  text-align: right;
+}
+.award-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10.5pt;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.award-ko {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--navy-mid);
+  margin-top: 3px;
+}
+.award-org {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 200;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+.header-rule {
+  margin: 8mm 22mm 0;
+  height: 1px;
+  background: var(--navy);
+}
+
+/* ── Body ── */
+.body {
+  padding: 12mm 22mm 0;
+  flex: 1;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 20px;
+  margin-bottom: 11mm;
+  padding-bottom: 8mm;
+  border-bottom: 0.5px solid var(--rule);
+}
+.meta-field {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5mm;
+}
+.meta-value {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+.meta-date-block {
+  text-align: right;
+}
+.meta-sub {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 6.5pt;
+  color: var(--muted);
+  margin-top: 1mm;
+  font-weight: 200;
+}
+.letter-type-badge {
+  display: inline-block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background: var(--accent);
+  padding: 2.5px 10px;
+  margin-bottom: 5mm;
+  text-transform: uppercase;
+}
+.subject {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 17pt;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin-bottom: 12mm;
+}
+.subject-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 2mm;
+  letter-spacing: 0.05em;
+}
+.body-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 9.5pt;
+  line-height: 2.05;
+  color: var(--text);
+  word-break: keep-all;
+}
+.body-text p {
+  margin-bottom: 5mm;
+  text-indent: 1em;
+}
+.body-text p.no-indent {
+  text-indent: 0;
+}
+.highlight-box {
+  border: 0.5px solid var(--navy);
+  padding: 7mm 8mm;
+  margin: 8mm 0;
+  background: #F7F6F4;
+}
+.highlight-box-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 7pt;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 4mm;
+}
+.highlight-items {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 9pt;
+  color: var(--text);
+  line-height: 1.9;
+}
+.highlight-items li {
+  list-style: none;
+  padding-left: 12px;
+  position: relative;
+}
+.highlight-items li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--navy);
+}
+
+/* ── Signature ── */
+.signature-block {
+  margin-top: 13mm;
+  padding-top: 8mm;
+  border-top: 0.5px solid var(--rule);
+  display: flex;
+  justify-content: flex-end;
+}
+.signature-inner {
+  text-align: left;
+  min-width: 160px;
+}
+.sig-label {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 200;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 2mm;
+}
+.sig-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 300;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5mm;
+}
+.sig-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 12pt;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px; height: 46px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  font-size: 6.5pt;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 200;
+  color: var(--rule);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* ── Footer ── */
+.footer {
+  margin: 10mm 22mm 14mm;
+}
+.footer-rule {
+  height: 0.5px;
+  background: var(--rule);
+  margin-bottom: 5mm;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footer-contact {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 200;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+}
+.footer-edition {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: var(--rule);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media print {
+  body { background: none; padding: 0; }
+  .page { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar"></div>
+
+  <div class="header">
+    <img class="logo-mark" src="data:image/png;base64,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" alt="KYAA">
+    <div class="header-right">
+      <div class="award-en">Korea Young Architect Award</div>
+      <div class="award-ko">젊은건축가상</div>
+      <div class="award-org">새건축사협의회 운영위원회 &nbsp;·&nbsp; Korean Young Architects Association</div>
+    </div>
+  </div>
+  <div class="header-rule"></div>
+
+  <div class="body">
+    <div class="meta-grid">
+      <div>
+        <div class="meta-field">수신</div>
+        <div class="meta-value">홍길동 건축사 귀중</div>
+        <div class="meta-sub">제OO회 젊은건축가상 수상자</div>
+      </div>
+      <div class="meta-date-block">
+        <div class="meta-field">발신일</div>
+        <div class="meta-value">2026년 &nbsp;O월 &nbsp;O일</div>
+      </div>
+    </div>
+
+    <div class="letter-type-badge">Sponsorship Inquiry &nbsp;·&nbsp; 후원 문의</div>
+
+    <div class="subject">
+      제19회 젊은건축가상 후원을<br>정중히 요청드립니다
+      <div class="subject-sub">Invitation to Support the 19th Korea Young Architect Award</div>
+    </div>
+
+    <div class="body-text">
+      <p class="no-indent">안녕하십니까. 새건축사협의회 젊은건축가상 운영위원회입니다.</p>
+
+      <p>젊은건축가상은 한국 건축의 미래를 이끌어갈 차세대 건축가를 발굴하고 지원하는 상으로, 이 자리를 빌어 귀하의 귀중한 수상 경험과 통찰을 나누어 주시기를 정중히 요청드립니다.</p>
+
+      <p>귀하께서 제OO회 수상자로서 이루어오신 건축적 여정은 후배 건축가들에게 큰 영감이 될 것이며, 귀하의 참여는 이번 제19회 수상자에게 특별한 의미로 전해질 것입니다.</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-box-title">후원 참여 안내 &nbsp;·&nbsp; Ways to Participate</div>
+      <ul class="highlight-items">
+        <li>시상식 참석 및 수상 소감 공유 (2026. O. O.)</li>
+        <li>수상자 멘토링 프로그램 참여</li>
+        <li>젊은건축가상 홍보 서포터즈 활동</li>
+        <li>재정 후원 (금액 및 방법은 협의 가능)</li>
+      </ul>
+    </div>
+
+    <div class="body-text">
+      <p>귀하의 소중한 참여와 후원에 진심으로 감사드리며, 관련 문의 사항은 아래 연락처로 부탁드립니다.</p>
+    </div>
+
+    <div class="signature-block">
+      <div class="signature-inner">
+        <div class="sig-label">제19회 젊은건축가상 운영위원회</div>
+        <div class="sig-title">운영위원장</div>
+        <div class="sig-name">홍 &nbsp;길 &nbsp;동 &nbsp;<span class="seal">인</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-rule"></div>
+    <div class="footer-inner">
+      <div class="footer-contact">
+        새건축사협의회 젊은건축가상 운영위원회<br>
+        T. 02-000-0000 &nbsp;&nbsp;E. kyaa@archiassoc.kr<br>
+        서울시 OO구 OO로 OOO (우편번호)
+      </div>
+      <div class="footer-edition">KYAA &nbsp;·&nbsp; 19th Edition &nbsp;·&nbsp; 2026</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
